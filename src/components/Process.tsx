@@ -1,12 +1,51 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { useEffect, useRef } from "react";
 import { Lightbulb, FileText, Code, Rocket, BarChart, Repeat } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Process = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  const timelineRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!timelineRef.current) return;
+
+    const steps = timelineRef.current.querySelectorAll('.process-step');
+    
+    steps.forEach((step, index) => {
+      gsap.fromTo(
+        step,
+        {
+          opacity: 0,
+          x: index % 2 === 0 ? -100 : 100,
+        },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: step,
+            start: "top 80%",
+            end: "top 50%",
+            scrub: 1,
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
 
   const steps = [
     {
@@ -74,29 +113,45 @@ const Process = () => {
           </p>
         </motion.div>
 
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto" ref={timelineRef}>
           {steps.map((step, index) => (
             <motion.div
               key={step.title}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="relative mb-12 last:mb-0"
+              className="process-step relative mb-12 last:mb-0"
             >
-              {/* Connecting line */}
+              {/* Connecting line with animation */}
               {index < steps.length - 1 && (
-                <div className="absolute left-8 top-20 w-0.5 h-24 bg-gradient-to-b from-primary via-secondary to-accent hidden md:block" />
+                <motion.div 
+                  className="absolute left-8 top-20 w-0.5 h-24 bg-gradient-to-b from-primary via-secondary to-accent hidden md:block overflow-hidden"
+                  initial={{ scaleY: 0 }}
+                  whileInView={{ scaleY: 1 }}
+                  transition={{ duration: 0.8, delay: index * 0.2 }}
+                  viewport={{ once: true }}
+                  style={{ transformOrigin: "top" }}
+                />
               )}
 
               <div className={`flex flex-col md:flex-row gap-6 items-start ${
                 index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
               }`}>
-                {/* Icon */}
-                <div className="flex-shrink-0">
-                  <div className={`w-16 h-16 ${step.color} rounded-2xl flex items-center justify-center shadow-elegant`}>
+                {/* Icon with pulse animation */}
+                <motion.div 
+                  className="flex-shrink-0"
+                  whileInView={{ scale: [0.8, 1.1, 1] }}
+                  transition={{ duration: 0.5, delay: index * 0.15 }}
+                  viewport={{ once: true }}
+                >
+                  <motion.div 
+                    className={`w-16 h-16 ${step.color} rounded-2xl flex items-center justify-center shadow-elegant`}
+                    whileHover={{ 
+                      scale: 1.1,
+                      rotate: 360,
+                    }}
+                    transition={{ duration: 0.6 }}
+                  >
                     <step.icon className="w-8 h-8 text-white" />
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
 
                 {/* Content */}
                 <div className={`flex-1 bg-card p-6 rounded-2xl border-2 border-border hover:border-primary/50 transition-smooth group hover:shadow-elegant ${

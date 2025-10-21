@@ -11,6 +11,7 @@ import {
   Smartphone,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { staggerContainer, fadeInUp } from "@/lib/animations";
 
 const Services = () => {
   const [ref, inView] = useInView({
@@ -90,30 +91,59 @@ const Services = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          variants={staggerContainer}
+          initial="initial"
+          animate={inView ? "animate" : "initial"}
+        >
           {services.map((service, index) => (
             <motion.div
               key={service.title}
+              variants={fadeInUp}
+              whileInView={{ opacity: 1, y: 0 }}
               initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover="hover"
             >
-              <Card className="h-full group hover:shadow-glow transition-all duration-300 hover:-translate-y-2 border-2 hover:border-primary/50 bg-card">
-                <CardContent className="p-6 space-y-4">
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-primary flex items-center justify-center group-hover:scale-110 transition-smooth`}>
-                    <service.icon className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-smooth">
-                    {service.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {service.description}
-                  </p>
-                </CardContent>
-              </Card>
+              <motion.div
+                variants={{
+                  rest: { y: 0 },
+                  hover: { y: -12 }
+                }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              >
+                <Card className="h-full group hover:shadow-glow transition-all duration-300 border-2 hover:border-primary/50 bg-card overflow-hidden">
+                  <CardContent className="p-6 space-y-4 relative">
+                    {/* Hover gradient effect */}
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-5 transition-opacity duration-300"
+                    />
+                    
+                    <motion.div 
+                      className="w-14 h-14 rounded-2xl bg-gradient-primary flex items-center justify-center relative z-10"
+                      whileHover={{ 
+                        rotate: [0, -10, 10, -10, 0],
+                        scale: 1.1
+                      }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <service.icon className="w-7 h-7 text-white" />
+                    </motion.div>
+                    
+                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-smooth relative z-10">
+                      {service.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed relative z-10">
+                      {service.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

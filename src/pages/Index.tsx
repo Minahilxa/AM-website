@@ -7,22 +7,25 @@ import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
-      <Navbar />
-      <main>
-        <Hero />
-        <Services />
-        <Quiz />
-        <Process />
-        <Pricing />
-        <Testimonials />
-        <CTA />
-      </main>
-      <Footer />
-    </div>
+    <SmoothScroll>
+      <div className="min-h-screen">
+        <Navbar />
+        <main>
+          <Hero />
+          <Services />
+          <Quiz />
+          <Process />
+          <Pricing />
+          <Testimonials />
+          <CTA />
+        </main>
+        <Footer />
+      </div>
+    </SmoothScroll>
   );
 };
 
