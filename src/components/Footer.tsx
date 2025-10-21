@@ -1,0 +1,163 @@
+import { Facebook, Instagram, Linkedin, Twitter, Mail, Phone, MapPin } from "lucide-react";
+
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
+  const footerLinks = {
+    services: [
+      { name: "Web Design", href: "#services" },
+      { name: "SEO Services", href: "#services" },
+      { name: "Digital Marketing", href: "#services" },
+      { name: "E-Commerce", href: "#services" },
+    ],
+    company: [
+      { name: "About Us", href: "#about" },
+      { name: "Our Process", href: "#process" },
+      { name: "Portfolio", href: "#portfolio" },
+      { name: "Testimonials", href: "#testimonials" },
+    ],
+    support: [
+      { name: "Contact Us", href: "#contact" },
+      { name: "Free Consultation", href: "#quiz" },
+      { name: "Pricing", href: "#pricing" },
+      { name: "FAQ", href: "#faq" },
+    ],
+  };
+
+  const socialLinks = [
+    { Icon: Facebook, href: "#", label: "Facebook" },
+    { Icon: Instagram, href: "#", label: "Instagram" },
+    { Icon: Twitter, href: "#", label: "Twitter" },
+    { Icon: Linkedin, href: "#", label: "LinkedIn" },
+  ];
+
+  return (
+    <footer className="bg-card border-t border-border">
+      <div className="container mx-auto px-4 lg:px-8 py-12 lg:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
+          {/* Brand Column */}
+          <div className="lg:col-span-2 space-y-4">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-xl">AM</span>
+              </div>
+              <div>
+                <h3 className="font-bold text-lg text-foreground">AM Enterprises</h3>
+                <p className="text-xs text-muted-foreground">360° Digital Agency</p>
+              </div>
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              We transform businesses through innovative digital solutions, helping you grow your online presence and achieve measurable results.
+            </p>
+            <div className="space-y-2 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-primary" />
+                <a href="mailto:hello@amenterprise.com" className="hover:text-primary transition-smooth">
+                  hello@amenterprise.com
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <Phone className="w-4 h-4 text-primary" />
+                <a href="tel:+1234567890" className="hover:text-primary transition-smooth">
+                  +1 (234) 567-890
+                </a>
+              </div>
+              <div className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                <span>123 Digital Avenue, Tech City, TC 12345</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Services Column */}
+          <div>
+            <h4 className="font-bold text-foreground mb-4">Services</h4>
+            <ul className="space-y-2">
+              {footerLinks.services.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="text-sm text-muted-foreground hover:text-primary transition-smooth"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company Column */}
+          <div>
+            <h4 className="font-bold text-foreground mb-4">Company</h4>
+            <ul className="space-y-2">
+              {footerLinks.company.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="text-sm text-muted-foreground hover:text-primary transition-smooth"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Support Column */}
+          <div>
+            <h4 className="font-bold text-foreground mb-4">Support</h4>
+            <ul className="space-y-2">
+              {footerLinks.support.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="text-sm text-muted-foreground hover:text-primary transition-smooth"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="mt-12 pt-8 border-t border-border">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            {/* Copyright */}
+            <p className="text-sm text-muted-foreground">
+              © {currentYear} AM Enterprises. All rights reserved.
+            </p>
+
+            {/* Social Links */}
+            <div className="flex items-center gap-4">
+              {socialLinks.map(({ Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  className="w-10 h-10 rounded-full bg-muted hover:bg-primary/10 flex items-center justify-center text-muted-foreground hover:text-primary transition-smooth group"
+                >
+                  <Icon className="w-5 h-5 group-hover:scale-110 transition-smooth" />
+                </a>
+              ))}
+            </div>
+
+            {/* Legal Links */}
+            <div className="flex items-center gap-4 text-sm">
+              <a href="#privacy" className="text-muted-foreground hover:text-primary transition-smooth">
+                Privacy Policy
+              </a>
+              <span className="text-border">•</span>
+              <a href="#terms" className="text-muted-foreground hover:text-primary transition-smooth">
+                Terms of Service
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
