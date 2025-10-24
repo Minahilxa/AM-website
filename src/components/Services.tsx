@@ -73,13 +73,7 @@ const Services = () => {
   return (
     <section id="services" className="py-20 lg:py-32 bg-muted/30">
       <div className="container mx-auto px-4 lg:px-8">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16 space-y-4"
-        >
+        <div ref={ref} className="text-center mb-16 space-y-4">
           <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
             Our Services
           </span>
@@ -87,9 +81,9 @@ const Services = () => {
             Complete Digital Solutions
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            From strategy to execution, we provide everything you need to succeed online
+            Complete digital solutions to scale your business
           </p>
-        </motion.div>
+        </div>
 
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"

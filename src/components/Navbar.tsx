@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
+  const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -16,13 +18,19 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "Services", href: "#services" },
-    { name: "Process", href: "#process" },
-    { name: "Pricing", href: "#pricing" },
-    { name: "Portfolio", href: "#portfolio" },
-    { name: "About", href: "#about" },
+    { name: "Home", href: "/" },
+    { name: "Services", href: "/#services" },
+    { name: "Process", href: "/#process" },
+    { name: "Pricing", href: "/#pricing" },
+    { name: "Portfolio", href: "/portfolio" },
+    { name: "About", href: "/about" },
   ];
+
+  const isExternalLink = (href: string) => href.startsWith("/#");
+  const isActive = (href: string) => {
+    if (href === "/") return location.pathname === "/";
+    return location.pathname === href;
+  };
 
   return (
     <motion.nav
@@ -37,41 +45,50 @@ const Navbar = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <motion.a
-            href="#home"
-            className="flex items-center space-x-3"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
+          <Link to="/" className="flex items-center space-x-3">
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="flex items-center space-x-3">
             <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-xl">AM</span>
             </div>
-            <div className="hidden sm:block">
-              <h1 className="font-bold text-xl text-foreground">AM Enterprises</h1>
-              <p className="text-xs text-muted-foreground">360° Digital Agency</p>
-            </div>
-          </motion.a>
+              <div className="hidden sm:block">
+                <h1 className="font-bold text-xl text-foreground">AM Enterprises</h1>
+                <p className="text-xs text-muted-foreground">360° Digital Agency</p>
+              </div>
+            </motion.div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="px-4 py-2 text-foreground hover:text-primary transition-smooth rounded-lg hover:bg-muted"
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              isExternalLink(link.href) ? (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="px-4 py-2 text-foreground hover:text-primary transition-smooth rounded-lg hover:bg-muted"
+                >
+                  {link.name}
+                </a>
+              ) : (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className={`px-4 py-2 transition-smooth rounded-lg hover:bg-muted ${
+                    isActive(link.href) ? "text-primary font-semibold" : "text-foreground hover:text-primary"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              )
+            )}
           </div>
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-3">
             <Button variant="ghost" asChild>
-              <a href="#contact">Contact</a>
+              <Link to="/contact">Contact</Link>
             </Button>
             <Button className="bg-gradient-primary hover:opacity-90 transition-smooth shadow-elegant" asChild>
-              <a href="#quiz">Free Audit</a>
+              <Link to="/about">Free Audit</Link>
             </Button>
           </div>
 
@@ -96,22 +113,35 @@ const Navbar = () => {
             className="lg:hidden bg-card border-t border-border"
           >
             <div className="container mx-auto px-4 py-6 space-y-3">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block px-4 py-3 text-foreground hover:text-primary hover:bg-muted rounded-lg transition-smooth"
-                >
-                  {link.name}
-                </a>
-              ))}
+              {navLinks.map((link) =>
+                isExternalLink(link.href) ? (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block px-4 py-3 text-foreground hover:text-primary hover:bg-muted rounded-lg transition-smooth"
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.name}
+                    to={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`block px-4 py-3 hover:bg-muted rounded-lg transition-smooth ${
+                      isActive(link.href) ? "text-primary font-semibold" : "text-foreground hover:text-primary"
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                )
+              )}
               <div className="pt-4 space-y-2">
                 <Button variant="outline" className="w-full" asChild>
-                  <a href="#contact">Contact Us</a>
+                  <Link to="/contact">Contact Us</Link>
                 </Button>
                 <Button className="w-full bg-gradient-primary" asChild>
-                  <a href="#quiz">Get Free Audit</a>
+                  <Link to="/about">Get Free Audit</Link>
                 </Button>
               </div>
             </div>

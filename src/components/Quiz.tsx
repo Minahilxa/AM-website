@@ -13,25 +13,54 @@ const Quiz = () => {
 
   const questions = [
     {
-      question: "Do you currently have a website?",
-      options: ["Yes, and it's modern", "Yes, but it needs updating", "No, I need one"],
+      question: "Current Digital Presence: How would you describe your current online presence?",
+      options: [
+        "🟢 We have a fully functional website and active social media profiles.",
+        "🟡 We have a basic website but it needs improvement.",
+        "🔴 We only have social media pages — no website yet.",
+        "⚪ We don't have any online presence."
+      ]
     },
     {
-      question: "Are you running paid ads?",
-      options: ["Yes, Meta & Google", "Yes, but only one platform", "No, not yet"],
+      question: "Technology & Tools: What tools or platforms do you currently use to manage your business?",
+      options: [
+        "🟢 Integrated CRM, ERP, and marketing tools.",
+        "🟡 A few digital tools (e.g. Google Workspace, WhatsApp, Excel).",
+        "🔴 Mostly manual processes with minimal digital tools.",
+        "⚪ Not sure / none."
+      ]
     },
     {
-      question: "How's your search engine ranking?",
-      options: ["Page 1 on Google", "Page 2-3", "Not sure / Not ranked"],
+      question: "Customer Engagement: How do you currently engage with your customers online?",
+      options: [
+        "🟢 Through automated marketing, chatbots, and data-driven campaigns.",
+        "🟡 Regular posts and manual responses on social media.",
+        "🔴 Occasionally respond to messages — no structured plan.",
+        "⚪ We don't use digital platforms to engage customers."
+      ]
     },
     {
-      question: "What's your monthly digital marketing budget?",
-      options: ["$500 - $2000", "$2000 - $5000", "$5000+"],
+      question: "Business Goals: What's your primary goal for digital transformation?",
+      options: [
+        "🚀 Scale and automate operations.",
+        "💻 Build or redesign our website and digital presence.",
+        "📊 Improve customer experience and analytics.",
+        "💬 Just exploring options / not sure yet."
+      ]
     },
+    {
+      question: "Budget Readiness: What's your estimated investment range for digital growth in the next 6–12 months?",
+      options: [
+        "💰 $10,000+ — ready for a complete digital revamp.",
+        "💸 $5,000–$10,000 — want a solid upgrade.",
+        "💼 $1,000–$5,000 — looking for phased improvements.",
+        "🔍 Under $1,000 — just exploring possibilities."
+      ]
+    }
   ];
 
-  const handleAnswer = (answer: string) => {
-    const newAnswers = [...answers, answer];
+  const handleAnswer = (answerIndex: number) => {
+    const newAnswers = [...answers, answerIndex];
     setAnswers(newAnswers);
 
     if (currentQuestion < questions.length - 1) {
@@ -44,36 +73,43 @@ const Quiz = () => {
   const calculateScore = () => {
     let score = 0;
     answers.forEach((answer) => {
-      if (answer.includes("modern") || answer.includes("Meta & Google") || answer.includes("Page 1")) {
-        score += 3;
-      } else if (answer.includes("updating") || answer.includes("only one") || answer.includes("Page 2-3")) {
-        score += 2;
-      } else {
-        score += 1;
-      }
+      if (answer === 0) score += 4;
+      else if (answer === 1) score += 3;
+      else if (answer === 2) score += 2;
+      else score += 1;
     });
     return score;
   };
 
   const getRecommendation = () => {
     const score = calculateScore();
-    if (score <= 6) {
+    if (score >= 16) {
       return {
-        title: "Let's Build Your Digital Foundation",
-        message: "You need a comprehensive digital strategy. We recommend starting with website development and SEO basics.",
-        services: ["Website Design", "Basic SEO", "Social Media Setup"],
+        title: "🚀 Digitally Advanced!",
+        message: "Your business has a strong digital foundation. You're ready for advanced automation and scaling solutions.",
+        services: ["Advanced Analytics & AI", "Marketing Automation", "Custom Enterprise Solutions"],
+        budget: "$10,000+"
       };
-    } else if (score <= 9) {
+    } else if (score >= 12) {
       return {
-        title: "Time to Scale Your Digital Presence",
-        message: "You have a good start! Let's optimize and expand your digital marketing efforts.",
-        services: ["Website Redesign", "Advanced SEO", "Paid Ads Management"],
+        title: "💼 Digitally Growing!",
+        message: "You have good basics but there's significant room to optimize and grow your digital presence.",
+        services: ["Website Redesign", "CRM Integration", "Digital Marketing Campaigns"],
+        budget: "$5,000 - $10,000"
+      };
+    } else if (score >= 8) {
+      return {
+        title: "🌟 Getting Started!",
+        message: "You have a foundation but need structured improvements to compete effectively in the digital space.",
+        services: ["Website Development", "SEO & Content Strategy", "Social Media Management"],
+        budget: "$1,000 - $5,000"
       };
     } else {
       return {
-        title: "Maximize Your Digital ROI",
-        message: "You're doing great! Let's fine-tune your strategy for maximum performance.",
-        services: ["Conversion Optimization", "Advanced Analytics", "Full-Stack Digital Management"],
+        title: "🌱 Time to Build Your Digital Presence!",
+        message: "Let's start from the ground up! Building a strong digital foundation is crucial for your business growth.",
+        services: ["Website Creation", "Brand Identity Design", "Digital Strategy Planning"],
+        budget: "Under $1,000 (Starter Phase)"
       };
     }
   };

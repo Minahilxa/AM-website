@@ -7,7 +7,7 @@ import { useToast } from "@/hooks/use-toast";
 
 const Pricing = () => {
   const { toast } = useToast();
-  const [ref, inView] = useInView({
+  const [ref] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
@@ -82,13 +82,7 @@ const Pricing = () => {
   return (
     <section id="pricing" className="py-20 lg:py-32 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16 space-y-4"
-        >
+        <div ref={ref} className="text-center mb-16 space-y-4">
           <span className="inline-block px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-medium">
             Pricing Plans
           </span>
@@ -98,17 +92,11 @@ const Pricing = () => {
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Transparent pricing with no hidden fees. Scale as you grow.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {plans.map((plan, index) => (
-            <motion.div
-              key={plan.name}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={plan.popular ? "lg:scale-105" : ""}
-            >
+          {plans.map((plan) => (
+            <div key={plan.name} className={plan.popular ? "lg:scale-105" : ""}>
               <Card className={`h-full border-2 ${plan.color} relative overflow-hidden group hover:shadow-elegant transition-all duration-300`}>
                 {plan.popular && (
                   <div className="absolute top-0 right-0 bg-gradient-accent text-white text-xs font-bold px-4 py-1 rounded-bl-lg">
@@ -135,16 +123,10 @@ const Pricing = () => {
                 <CardContent className="space-y-6">
                   <ul className="space-y-3">
                     {plan.features.map((feature, i) => (
-                      <motion.li
-                        key={i}
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={inView ? { opacity: 1, x: 0 } : {}}
-                        transition={{ delay: 0.3 + i * 0.05 }}
-                        className="flex items-start gap-3"
-                      >
+                      <li key={i} className="flex items-start gap-3">
                         <Check className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
                         <span className="text-sm text-foreground">{feature}</span>
-                      </motion.li>
+                      </li>
                     ))}
                   </ul>
 
@@ -159,17 +141,12 @@ const Pricing = () => {
                   </Button>
                 </CardContent>
               </Card>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Custom Package CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 text-center"
-        >
+        <div className="mt-16 text-center">
           <Card className="max-w-2xl mx-auto bg-gradient-to-br from-card to-primary/5 border-2 border-primary/30">
             <CardContent className="p-8 space-y-4">
               <h3 className="text-2xl font-bold">Need a Custom Package?</h3>
@@ -181,7 +158,7 @@ const Pricing = () => {
               </Button>
             </CardContent>
           </Card>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

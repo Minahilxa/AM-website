@@ -8,7 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const Process = () => {
-  const [ref, inView] = useInView({
+  const [ref] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
@@ -95,13 +95,7 @@ const Process = () => {
       </div>
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16 space-y-4"
-        >
+        <div ref={ref} className="text-center mb-16 space-y-4">
           <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
             Our Process
           </span>
@@ -111,7 +105,7 @@ const Process = () => {
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             A proven methodology that delivers results every time
           </p>
-        </motion.div>
+        </div>
 
         <div className="max-w-5xl mx-auto" ref={timelineRef}>
           {steps.map((step, index) => (

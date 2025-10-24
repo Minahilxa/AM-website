@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Star, Quote } from "lucide-react";
 
 const Testimonials = () => {
-  const [ref, inView] = useInView({
+  const [ref] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
@@ -51,13 +51,7 @@ const Testimonials = () => {
   return (
     <section id="testimonials" className="py-20 lg:py-32 bg-gradient-to-b from-background to-muted/30">
       <div className="container mx-auto px-4 lg:px-8">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16 space-y-4"
-        >
+        <div ref={ref} className="text-center mb-16 space-y-4">
           <span className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium">
             Client Success Stories
           </span>
@@ -67,16 +61,11 @@ const Testimonials = () => {
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Real results from real businesses we've helped grow
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={testimonial.name}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-            >
+          {testimonials.map((testimonial) => (
+            <div key={testimonial.name}>
               <Card className="h-full border-2 hover:border-primary/50 transition-smooth hover:shadow-elegant group bg-card">
                 <CardContent className="p-6 space-y-4">
                   {/* Quote Icon */}
@@ -104,7 +93,7 @@ const Testimonials = () => {
                   </div>
                 </CardContent>
               </Card>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
