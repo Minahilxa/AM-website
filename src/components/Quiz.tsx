@@ -159,7 +159,7 @@ const Quiz = () => {
                 exit={{ opacity: 0, x: -50 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className="shadow-elegant border-2">
+                <Card className="shadow-elegant border-2 hover:shadow-glow transition-all duration-300">
                   <CardContent className="p-8 space-y-6">
                     {/* Progress */}
                     <div className="space-y-2">
@@ -208,7 +208,7 @@ const Quiz = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                <Card className="shadow-glow border-2 border-primary/50 bg-gradient-to-br from-card to-primary/5">
+                <Card className="shadow-glow border-2 border-primary/50 bg-gradient-to-br from-card to-primary/5 hover:scale-[1.02] transition-all duration-300">
                   <CardContent className="p-8 space-y-6">
                     <div className="text-center space-y-4">
                       <motion.div

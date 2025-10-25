@@ -41,7 +41,7 @@ const About = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <Card className="border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-accent/5">
+              <Card className="border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-accent/5 hover:shadow-elegant hover:-translate-y-1 hover:border-primary/50 transition-all duration-300 cursor-pointer">
                 <CardContent className="p-8 space-y-6">
                   <h2 className="text-3xl md:text-4xl font-bold text-center">
                     CEO's Message – From the Desk of Moez Rehman
@@ -88,7 +88,7 @@ const About = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <Card className="border-2 border-secondary/20">
+              <Card className="border-2 border-secondary/20 hover:shadow-elegant hover:-translate-y-1 hover:border-secondary/40 transition-all duration-300 cursor-pointer">
                 <CardContent className="p-8 space-y-6">
                   <h2 className="text-3xl font-bold">🔷 Our History – How We Began</h2>
                   
@@ -122,7 +122,7 @@ const About = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <Card className="border-2 border-accent/20">
+              <Card className="border-2 border-accent/20 hover:shadow-elegant hover:-translate-y-1 hover:border-accent/40 transition-all duration-300 cursor-pointer">
                 <CardContent className="p-8 space-y-6">
                   <h2 className="text-3xl font-bold">🔷 About Us – Who We Are</h2>
                   
@@ -167,7 +167,7 @@ const About = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <Card className="border-2 border-primary/20 bg-gradient-to-br from-card to-primary/5">
+              <Card className="border-2 border-primary/20 bg-gradient-to-br from-card to-primary/5 hover:shadow-glow hover:-translate-y-1 hover:border-primary/40 transition-all duration-300 cursor-pointer">
                 <CardContent className="p-8 space-y-6">
                   <h2 className="text-3xl font-bold">🔷 3 Years of Consistent Growth and Excellence</h2>
                   

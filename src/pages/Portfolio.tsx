@@ -98,7 +98,7 @@ const Portfolio = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card className={`border-2 border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-elegant group bg-gradient-to-br ${project.color}`}>
+                <Card className={`border-2 border-primary/20 hover:border-primary/40 hover:shadow-glow hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300 group cursor-pointer bg-gradient-to-br ${project.color}`}>
                   <CardContent className="p-8 space-y-6">
                     <div className="flex items-start justify-between">
                       <div className="space-y-4 flex-1">
@@ -129,7 +129,7 @@ const Portfolio = () => {
                         </div>
                       </div>
 
-                      <ExternalLink className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0 ml-4" />
+                      <ExternalLink className="w-6 h-6 text-muted-foreground group-hover:text-primary group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 flex-shrink-0 ml-4" />
                     </div>
                   </CardContent>
                 </Card>
@@ -144,7 +144,7 @@ const Portfolio = () => {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="text-center mt-16"
           >
-            <Card className="max-w-2xl mx-auto bg-gradient-to-br from-primary/10 to-accent/10 border-2 border-primary/30">
+            <Card className="max-w-2xl mx-auto bg-gradient-to-br from-primary/10 to-accent/10 border-2 border-primary/30 hover:border-primary/50 hover:shadow-elegant hover:-translate-y-1 transition-all duration-300">
               <CardContent className="p-8 space-y-4">
                 <h3 className="text-2xl font-bold">Ready to Start Your Project?</h3>
                 <p className="text-muted-foreground">

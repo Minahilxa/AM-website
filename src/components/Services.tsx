@@ -108,7 +108,7 @@ const Services = () => {
                 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
-                <Card className="h-full group hover:shadow-glow transition-all duration-300 border-2 hover:border-primary/50 bg-card overflow-hidden">
+                <Card className="h-full group hover:shadow-glow hover:scale-[1.03] hover:-translate-y-2 transition-all duration-300 border-2 hover:border-primary/50 bg-card overflow-hidden cursor-pointer">
                   <CardContent className="p-6 space-y-4 relative">
                     {/* Hover gradient effect */}
                     <motion.div

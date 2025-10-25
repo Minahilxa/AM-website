@@ -74,7 +74,7 @@ const Blog = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card className={`border-2 border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-elegant group bg-gradient-to-br ${post.color}`}>
+                <Card className={`border-2 border-primary/20 hover:border-primary/40 hover:shadow-glow hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300 group cursor-pointer bg-gradient-to-br ${post.color}`}>
                   <CardContent className="p-8 space-y-4">
                     <div className="flex items-start justify-between gap-6">
                       <div className="space-y-4 flex-1">
@@ -83,7 +83,7 @@ const Blog = () => {
                           <span>{post.date}</span>
                         </div>
                         
-                        <h2 className="text-2xl md:text-3xl font-bold group-hover:text-primary transition-colors">
+                        <h2 className="text-2xl md:text-3xl font-bold group-hover:text-primary transition-all duration-300">
                           {post.title}
                         </h2>
                         

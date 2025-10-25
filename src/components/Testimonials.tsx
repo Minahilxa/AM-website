@@ -60,7 +60,7 @@ const Testimonials = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {testimonials.map((testimonial) => (
             <div key={testimonial.name}>
-              <Card className="h-full border-2 hover:border-primary/50 transition-smooth hover:shadow-elegant group bg-card">
+              <Card className="h-full border-2 hover:border-primary/50 hover:-translate-y-2 hover:scale-[1.03] hover:shadow-glow transition-all duration-300 group bg-card cursor-pointer">
                 <CardContent className="p-6 space-y-4">
                   {/* Quote Icon */}
                   <div className="flex items-start justify-between">

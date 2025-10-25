@@ -84,10 +84,10 @@ const FAQ = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card className="border-2 border-primary/20 hover:border-primary/40 transition-all duration-300">
+                <Card className="border-2 border-primary/20 hover:border-primary/40 hover:shadow-elegant hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300 group cursor-pointer">
                   <CardContent className="p-6 space-y-4">
                     <div className="flex items-start gap-4">
-                      <HelpCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                      <HelpCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1 group-hover:scale-110 transition-transform" />
                       <div className="space-y-2">
                         <h3 className="text-xl font-bold">{faq.question}</h3>
                         <p className="text-muted-foreground">{faq.answer}</p>
