@@ -8,7 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 const Quiz = () => {
   const { toast } = useToast();
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState<string[]>([]);
+  const [answers, setAnswers] = useState<number[]>([]);
   const [showResults, setShowResults] = useState(false);
 
   const questions = [
@@ -187,7 +187,7 @@ const Quiz = () => {
                       {questions[currentQuestion].options.map((option, index) => (
                         <motion.button
                           key={index}
-                          onClick={() => handleAnswer(option)}
+                          onClick={() => handleAnswer(index)}
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                           className="w-full p-4 text-left border-2 border-border rounded-lg hover:border-primary hover:bg-primary/5 transition-smooth group"

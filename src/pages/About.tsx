@@ -32,14 +32,178 @@ const About = () => {
         </div>
       </section>
 
-      {/* Intro Content */}
+      {/* CEO's Message */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto space-y-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <Card className="border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-accent/5">
+                <CardContent className="p-8 space-y-6">
+                  <h2 className="text-3xl md:text-4xl font-bold text-center">
+                    CEO's Message – From the Desk of Moez Rehman
+                  </h2>
+                  
+                  <div className="space-y-4 text-muted-foreground leading-relaxed">
+                    <p>
+                      At AM Enterprises, our purpose goes beyond creating websites or running marketing campaigns — 
+                      we build meaningful digital experiences that help businesses grow and stay competitive in a fast-moving digital world.
+                    </p>
+                    
+                    <p>
+                      Over the past three years, we've grown from a passionate startup to a fully established 360° digital agency, 
+                      serving clients locally and internationally. This journey has been powered by innovation, creativity, 
+                      and our relentless commitment to excellence.
+                    </p>
+                    
+                    <p>
+                      Every client we work with becomes a part of our story. We don't just deliver projects — 
+                      we deliver trust, quality, and measurable results.
+                    </p>
+                    
+                    <p>
+                      I am proud of the talented professionals at AM Enterprises who bring ideas to life every single day — 
+                      turning challenges into opportunities and visions into success stories.
+                    </p>
+                    
+                    <p className="font-semibold text-foreground">
+                      Together, we are redefining the meaning of digital transformation.
+                    </p>
+                  </div>
+                  
+                  <div className="text-right border-t border-primary/20 pt-6 mt-6">
+                    <p className="font-bold text-lg">— Moez Rehman</p>
+                    <p className="text-sm text-muted-foreground">Founder & CEO, AM Enterprises</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* History */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <Card className="border-2 border-secondary/20">
+                <CardContent className="p-8 space-y-6">
+                  <h2 className="text-3xl font-bold">🔷 Our History – How We Began</h2>
+                  
+                  <div className="space-y-4 text-muted-foreground leading-relaxed">
+                    <p>
+                      Founded in 2022, AM Enterprises started with a single goal — to provide complete 360° business solutions under one roof.
+                    </p>
+                    
+                    <p>
+                      What began as a small creative team handling local design and development projects quickly evolved 
+                      into a full-service digital agency trusted by clients worldwide.
+                    </p>
+                    
+                    <p>
+                      With each project, we expanded our expertise — from web design and development to SEO, 
+                      social media marketing, branding, and automation systems.
+                    </p>
+                    
+                    <p>
+                      Today, AM Enterprises stands as a recognized digital brand with a strong client base in Pakistan, 
+                      the Middle East, and Europe. Our history is built on passion, teamwork, and a promise to deliver more than what's expected.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* About Us */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <Card className="border-2 border-accent/20">
+                <CardContent className="p-8 space-y-6">
+                  <h2 className="text-3xl font-bold">🔷 About Us – Who We Are</h2>
+                  
+                  <p className="text-muted-foreground leading-relaxed">
+                    AM Enterprises is a full-service digital transformation agency offering complete 360° business solutions.
+                  </p>
+                  
+                  <p className="text-muted-foreground leading-relaxed">
+                    We specialize in building, designing, and promoting brands that are ready for the future. 
+                    Whether you're launching a startup, scaling an enterprise, or revamping your online presence — 
+                    we create digital strategies that deliver measurable growth.
+                  </p>
+                  
+                  <h3 className="text-2xl font-bold mt-6">Our Core Expertise</h3>
+                  
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {[
+                      { icon: "🌐", text: "Web Design & Development: Custom, responsive, and high-performance websites." },
+                      { icon: "🎨", text: "Graphic Design & Branding: Creative visuals that communicate your brand story effectively." },
+                      { icon: "📈", text: "SEO & Digital Marketing: Boosting visibility, engagement, and conversions with data-driven campaigns." },
+                      { icon: "📱", text: "Social Media Management: Strategic content, consistent growth, and impactful online presence." },
+                      { icon: "⚙️", text: "Business Automation & CRM: Streamlining operations through smart, automated systems." },
+                      { icon: "⛓️", text: "Blockchain & Web3 Solutions: Building secure and modern crypto, fintech, and blockchain-based platforms." }
+                    ].map((item, index) => (
+                      <div key={index} className="flex items-start gap-3">
+                        <span className="text-2xl">{item.icon}</span>
+                        <span className="text-muted-foreground text-sm">{item.text}</span>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  <p className="text-foreground font-semibold mt-6">
+                    At AM Enterprises, we don't just complete projects — we build partnerships that help businesses evolve with confidence.
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* 3 Years of Excellence */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <Card className="border-2 border-primary/20 bg-gradient-to-br from-card to-primary/5">
+                <CardContent className="p-8 space-y-6">
+                  <h2 className="text-3xl font-bold">🔷 3 Years of Consistent Growth and Excellence</h2>
+                  
+                  <p className="text-muted-foreground leading-relaxed">
+                    Since our inception in 2022, AM Enterprises has earned a strong reputation for delivering 
+                    high-quality results through innovation and consistency.
+                  </p>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {[
+                      { label: "Years of Experience", value: "3+" },
+                      { label: "Projects Completed", value: "100+" },
+                      { label: "Industries Served", value: "IT, Real Estate, Health, Education, E-commerce, Finance, Blockchain" },
+                      { label: "Team Strength", value: "Skilled mix of developers, designers, marketers, and automation experts" },
+                      { label: "Client Satisfaction Rate", value: "98%" }
+                    ].map((stat, index) => (
+                      <div key={index} className="space-y-2">
+                        <p className="font-bold text-primary">{stat.label}</p>
+                        <p className="text-muted-foreground">{stat.value}</p>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  <p className="text-muted-foreground italic mt-4">
+                    Our success is defined not just by numbers but by the trust, satisfaction, 
+                    and repeat collaborations we've earned from our clients.
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Digital Health Quiz Intro */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
               className="prose prose-lg max-w-none"
             >
               <p className="text-lg text-muted-foreground leading-relaxed">

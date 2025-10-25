@@ -5,22 +5,21 @@ const Footer = () => {
 
   const footerLinks = {
     services: [
-      { name: "Web Design", href: "#services" },
-      { name: "SEO Services", href: "#services" },
-      { name: "Digital Marketing", href: "#services" },
-      { name: "E-Commerce", href: "#services" },
+      { name: "Web Development", href: "/#services" },
+      { name: "Digital Marketing", href: "/#services" },
+      { name: "Brand Strategy", href: "/#services" },
+      { name: "SEO Services", href: "/#services" },
     ],
     company: [
-      { name: "About Us", href: "#about" },
-      { name: "Our Process", href: "#process" },
-      { name: "Portfolio", href: "#portfolio" },
-      { name: "Testimonials", href: "#testimonials" },
+      { name: "About Us", href: "/about" },
+      { name: "Portfolio", href: "/portfolio" },
+      { name: "Blog", href: "/blog" },
+      { name: "FAQ", href: "/faq" },
     ],
     support: [
-      { name: "Contact Us", href: "#contact" },
-      { name: "Free Consultation", href: "#quiz" },
-      { name: "Pricing", href: "#pricing" },
-      { name: "FAQ", href: "#faq" },
+      { name: "Contact", href: "/contact" },
+      { name: "Terms", href: "/terms" },
+      { name: "Privacy Policy", href: "/terms" },
     ],
   };
 
@@ -47,24 +46,25 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              We transform businesses through innovative digital solutions, helping you grow your online presence and achieve measurable results.
+              360° Digital Solutions - Transforming businesses with innovation and excellence.
             </p>
             <div className="space-y-2 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-primary" />
-                <a href="mailto:hello@amenterprise.com" className="hover:text-primary transition-smooth">
-                  hello@amenterprise.com
+                <a href="mailto:moezrehman2@gmail.com" className="hover:text-primary transition-smooth">
+                  moezrehman2@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-primary" />
-                <a href="tel:+1234567890" className="hover:text-primary transition-smooth">
-                  +1 (234) 567-890
-                </a>
+                <span>0317-3712950 | 0370-9447916</span>
               </div>
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                <span>123 Digital Avenue, Tech City, TC 12345</span>
+                <span>Rawalpindi, Pakistan</span>
+              </div>
+              <div className="text-xs">
+                🕔 Working: 5:00 PM – 3:00 AM (PKT)
               </div>
             </div>
           </div>

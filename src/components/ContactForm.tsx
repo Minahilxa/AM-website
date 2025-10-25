@@ -43,9 +43,17 @@ const ContactForm = () => {
       >
         <div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Let's Talk</h2>
-          <p className="text-lg text-muted-foreground">
-            Have a project in mind? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
-          </p>
+          <div className="space-y-4 text-muted-foreground">
+            <p>Have a project in mind? We'd love to hear from you.</p>
+            
+            <div className="space-y-2 text-sm">
+              <p><strong>📧 Email:</strong> moezrehman2@gmail.com</p>
+              <p><strong>📞 Phone:</strong> 0317-3712950 | 0370-9447916</p>
+              <p><strong>🌐 Website:</strong> www.amenterprises.tech</p>
+              <p><strong>🕔 Working Hours:</strong> 5:00 PM – 3:00 AM (Pakistan Standard Time)</p>
+              <p><strong>📍 Location:</strong> Rawalpindi, Pakistan</p>
+            </div>
+          </div>
         </div>
 
         <div className="space-y-6">
@@ -56,8 +64,7 @@ const ContactForm = () => {
               </div>
               <div>
                 <h3 className="font-semibold text-lg mb-1">Email Us</h3>
-                <p className="text-muted-foreground">contact@amenterprises.com</p>
-                <p className="text-muted-foreground">support@amenterprises.com</p>
+                <p className="text-muted-foreground">moezrehman2@gmail.com</p>
               </div>
             </CardContent>
           </Card>
@@ -69,8 +76,8 @@ const ContactForm = () => {
               </div>
               <div>
                 <h3 className="font-semibold text-lg mb-1">Call Us</h3>
-                <p className="text-muted-foreground">+1 (555) 123-4567</p>
-                <p className="text-muted-foreground">Mon-Fri, 9AM - 6PM EST</p>
+                <p className="text-muted-foreground">0317-3712950 | 0370-9447916</p>
+                <p className="text-muted-foreground">5:00 PM – 3:00 AM (PKT)</p>
               </div>
             </CardContent>
           </Card>
@@ -82,8 +89,7 @@ const ContactForm = () => {
               </div>
               <div>
                 <h3 className="font-semibold text-lg mb-1">Visit Us</h3>
-                <p className="text-muted-foreground">123 Digital Avenue</p>
-                <p className="text-muted-foreground">New York, NY 10001</p>
+                <p className="text-muted-foreground">Rawalpindi, Pakistan</p>
               </div>
             </CardContent>
           </Card>

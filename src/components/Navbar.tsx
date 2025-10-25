@@ -19,11 +19,13 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Services", href: "/#services" },
-    { name: "Process", href: "/#process" },
-    { name: "Pricing", href: "/#pricing" },
-    { name: "Portfolio", href: "/portfolio" },
     { name: "About", href: "/about" },
+    { name: "Services", href: "/#services" },
+    { name: "Portfolio", href: "/portfolio" },
+    { name: "Blog", href: "/blog" },
+    { name: "FAQ", href: "/faq" },
+    { name: "Terms", href: "/terms" },
+    { name: "Contact", href: "/contact" },
   ];
 
   const isExternalLink = (href: string) => href.startsWith("/#");
@@ -82,11 +84,8 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* CTA Buttons */}
-          <div className="hidden lg:flex items-center space-x-3">
-            <Button variant="ghost" asChild>
-              <Link to="/contact">Contact</Link>
-            </Button>
+          {/* CTA Button */}
+          <div className="hidden lg:flex items-center">
             <Button className="bg-gradient-primary hover:opacity-90 transition-smooth shadow-elegant" asChild>
               <Link to="/about">Free Audit</Link>
             </Button>
@@ -136,10 +135,7 @@ const Navbar = () => {
                   </Link>
                 )
               )}
-              <div className="pt-4 space-y-2">
-                <Button variant="outline" className="w-full" asChild>
-                  <Link to="/contact">Contact Us</Link>
-                </Button>
+              <div className="pt-4">
                 <Button className="w-full bg-gradient-primary" asChild>
                   <Link to="/about">Get Free Audit</Link>
                 </Button>
