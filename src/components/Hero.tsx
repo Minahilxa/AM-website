@@ -78,7 +78,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-4"
           >
-            <motion.h1 
+            <motion.h1
               className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
@@ -86,7 +86,7 @@ const Hero = () => {
             >
               Transform Your
               <br />
-              <motion.span 
+              <motion.span
                 className="gradient-text inline-block"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -95,13 +95,14 @@ const Hero = () => {
                 Digital Presence
               </motion.span>
             </motion.h1>
-            <motion.p 
+            <motion.p
               className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              We craft stunning websites, drive targeted traffic, and scale your business with data-driven digital strategies
+              We craft stunning websites, drive targeted traffic, and scale your
+              business with data-driven digital strategies
             </motion.p>
           </motion.div>
 
@@ -142,7 +143,7 @@ const Hero = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-primary text-lg h-14 px-8 transition-smooth"
+                className="border-2 border-white text-blue-500 hover:bg-white hover:text-primary text-lg h-14 px-8 transition-smooth"
                 asChild
               >
                 <a href="#services">Explore Services</a>
@@ -155,13 +156,13 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.2 }}
-            className="flex flex-wrap justify-center gap-8 pt-8 text-white/90"
+            className="flex flex-wrap justify-center gap-8 pt-8 text-black/90"
           >
-            <motion.div 
+            <motion.div
               className="flex items-center gap-2"
               whileHover={{ scale: 1.05 }}
             >
-              <motion.div 
+              <motion.div
                 className="w-2 h-2 bg-secondary rounded-full"
                 animate={{
                   scale: [1, 1.2, 1],
@@ -174,14 +175,15 @@ const Hero = () => {
                 }}
               />
               <span>
-                <CountUp end={100} duration={2} delay={1.5} />+ Projects Delivered
+                <CountUp end={100} duration={2} delay={1.5} />+ Projects
+                Delivered
               </span>
             </motion.div>
-            <motion.div 
+            <motion.div
               className="flex items-center gap-2"
               whileHover={{ scale: 1.05 }}
             >
-              <motion.div 
+              <motion.div
                 className="w-2 h-2 bg-accent rounded-full"
                 animate={{
                   scale: [1, 1.2, 1],
@@ -198,11 +200,11 @@ const Hero = () => {
                 <CountUp end={50} duration={2} delay={1.5} />+ Happy Clients
               </span>
             </motion.div>
-            <motion.div 
+            <motion.div
               className="flex items-center gap-2"
               whileHover={{ scale: 1.05 }}
             >
-              <motion.div 
+              <motion.div
                 className="w-2 h-2 bg-primary rounded-full"
                 animate={{
                   scale: [1, 1.2, 1],
@@ -216,7 +218,8 @@ const Hero = () => {
                 }}
               />
               <span>
-                <CountUp end={5} duration={2} delay={1.5} decimals={1} />★ Rated Agency
+                <CountUp end={5} duration={2} delay={1.5} decimals={1} />★ Rated
+                Agency
               </span>
             </motion.div>
           </motion.div>

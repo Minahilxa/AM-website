@@ -9,10 +9,12 @@ const ScrollIndicator = () => {
       transition={{ delay: 1.5, duration: 0.8 }}
       className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center gap-2 cursor-pointer"
       onClick={() => {
-        document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+        document
+          .getElementById("services")
+          ?.scrollIntoView({ behavior: "smooth" });
       }}
     >
-      <span className="text-sm text-white/70">Scroll to explore</span>
+      {/* <span className="text-sm text-black/70">Scroll to explore</span> */}
       <motion.div
         animate={{
           y: [0, 10, 0],

@@ -21,7 +21,8 @@ const CTA = () => {
             Ready to Transform Your Digital Presence?
           </h2>
           <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto">
-            Join 50+ successful businesses that chose AM Enterprises for their digital growth
+            Join 50+ successful businesses that chose AM Enterprises for their
+            digital growth
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
@@ -36,7 +37,7 @@ const CTA = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-white text-white hover:bg-white hover:text-primary text-lg h-14 px-8"
+              className="border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white text-lg h-14 px-8 transition-all duration-300"
             >
               <Phone className="w-5 h-5 mr-2" />
               Call Us Now
