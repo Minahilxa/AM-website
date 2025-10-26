@@ -8,22 +8,26 @@ import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
+import ParticlesBackground from "@/components/ParticlesBackground";
 
 const Index = () => {
   return (
     <SmoothScroll>
-      <div className="min-h-screen">
-        <Navbar />
-        <main>
-          <Hero />
-          <Services />
-          <Quiz />
-          <Process />
-          <Pricing />
-          <Testimonials />
-          <CTA />
-        </main>
-        <Footer />
+      <div className="min-h-screen relative">
+        <ParticlesBackground />
+        <div className="relative z-10">
+          <Navbar />
+          <main>
+            <Hero />
+            <Services />
+            <Quiz />
+            <Process />
+            <Pricing />
+            <Testimonials />
+            <CTA />
+          </main>
+          <Footer />
+        </div>
       </div>
     </SmoothScroll>
   );
