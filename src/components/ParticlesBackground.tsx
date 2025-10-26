@@ -98,7 +98,7 @@ const ParticlesBackground = () => {
         },
         detectRetina: true,
       }}
-      className="absolute inset-0 z-0"
+      className="absolute inset-0 -z-10 pointer-events-none"
     />
   );
 };

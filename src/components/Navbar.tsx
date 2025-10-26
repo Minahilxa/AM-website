@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import logo from "@/assets/logo.png";
 
 const Navbar = () => {
   const location = useLocation();
@@ -49,9 +50,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">AM</span>
-            </div>
+              <img src={logo} alt="AM Enterprises Logo" className="h-14 w-14 rounded-full object-cover" />
               <div className="hidden sm:block">
                 <h1 className="font-bold text-xl text-foreground">AM Enterprises</h1>
                 <p className="text-xs text-muted-foreground">360° Digital Agency</p>

@@ -3,13 +3,17 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ParticlesBackground from "@/components/ParticlesBackground";
 import Quiz from "@/components/Quiz";
 import { Card, CardContent } from "@/components/ui/card";
+import { Award, Target, Users, TrendingUp } from "lucide-react";
 
 const About = () => {
   return (
-    <div className="min-h-screen">
-      <Navbar />
+    <div className="min-h-screen relative">
+      <ParticlesBackground />
+      <div className="relative z-10">
+        <Navbar />
       
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-hero relative overflow-hidden">
@@ -301,6 +305,7 @@ const About = () => {
       <Quiz />
 
       <Footer />
+      </div>
     </div>
   );
 };

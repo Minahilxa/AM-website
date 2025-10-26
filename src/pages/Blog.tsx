@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ParticlesBackground from "@/components/ParticlesBackground";
 import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, ArrowRight } from "lucide-react";
 
@@ -39,8 +40,10 @@ const Blog = () => {
   ];
 
   return (
-    <div className="min-h-screen">
-      <Navbar />
+    <div className="min-h-screen relative">
+      <ParticlesBackground />
+      <div className="relative z-10">
+        <Navbar />
       
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-hero relative overflow-hidden">
@@ -106,6 +109,7 @@ const Blog = () => {
       </section>
 
       <Footer />
+      </div>
     </div>
   );
 };
