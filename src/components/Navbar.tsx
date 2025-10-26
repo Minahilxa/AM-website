@@ -50,7 +50,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="flex items-center space-x-3">
-              <img src={logo} alt="AM Enterprises Logo" className="h-14 w-auto" />
+              <img src={logo} alt="AM Enterprises Logo" className="h-14 w-14 rounded-full object-cover" />
               <div className="hidden sm:block">
                 <h1 className="font-bold text-xl text-foreground">AM Enterprises</h1>
                 <p className="text-xs text-muted-foreground">360° Digital Agency</p>
