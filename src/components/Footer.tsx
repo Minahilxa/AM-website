@@ -1,4 +1,13 @@
-import { Facebook, Instagram, Linkedin, Twitter, Mail, Phone, MapPin } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Twitter,
+  Mail,
+  Phone,
+  MapPin,
+} from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -35,23 +44,40 @@ const Footer = () => {
       <div className="container mx-auto px-4 lg:px-8 py-12 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
           {/* Brand Column */}
+          {/* Brand Column */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">AM</span>
+              {/* Circular logo same as navbar */}
+              <div className="flex items-center justify-center">
+                <img
+                  src={logo}
+                  alt="AM Enterprises Logo"
+                  className="h-14 w-14 rounded-full object-cover shadow-md"
+                />
               </div>
+
               <div>
-                <h3 className="font-bold text-lg text-foreground">AM Enterprises</h3>
-                <p className="text-xs text-muted-foreground">360° Digital Agency</p>
+                <h3 className="font-bold text-lg text-foreground">
+                  AM Enterprises
+                </h3>
+                <p className="text-xs text-muted-foreground">
+                  360° Digital Agency
+                </p>
               </div>
             </div>
+
             <p className="text-sm text-muted-foreground leading-relaxed">
-              360° Digital Solutions - Transforming businesses with innovation and excellence.
+              360° Digital Solutions - Transforming businesses with innovation
+              and excellence.
             </p>
+
             <div className="space-y-2 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-primary" />
-                <a href="mailto:moezrehman2@gmail.com" className="hover:text-primary transition-smooth">
+                <a
+                  href="mailto:moezrehman2@gmail.com"
+                  className="hover:text-primary transition-smooth"
+                >
                   moezrehman2@gmail.com
                 </a>
               </div>
@@ -63,9 +89,7 @@ const Footer = () => {
                 <MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                 <span>Rawalpindi, Pakistan</span>
               </div>
-              <div className="text-xs">
-                🕔 Working: 5:00 PM – 3:00 AM (PKT)
-              </div>
+              <div className="text-xs">🕔 Working: 5:00 PM – 3:00 AM (PKT)</div>
             </div>
           </div>
 
@@ -145,11 +169,17 @@ const Footer = () => {
 
             {/* Legal Links */}
             <div className="flex items-center gap-4 text-sm">
-              <a href="#privacy" className="text-muted-foreground hover:text-primary transition-smooth">
+              <a
+                href="#privacy"
+                className="text-muted-foreground hover:text-primary transition-smooth"
+              >
                 Privacy Policy
               </a>
               <span className="text-border">•</span>
-              <a href="#terms" className="text-muted-foreground hover:text-primary transition-smooth">
+              <a
+                href="#terms"
+                className="text-muted-foreground hover:text-primary transition-smooth"
+              >
                 Terms of Service
               </a>
             </div>

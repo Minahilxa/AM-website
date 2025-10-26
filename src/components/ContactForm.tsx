@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import axios from "axios";
 
 const ContactForm = () => {
   const { toast } = useToast();
@@ -17,19 +18,45 @@ const ContactForm = () => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Message Sent! 🎉",
-      description: "Thank you for contacting us. We'll get back to you within 24 hours.",
-    });
-    setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
-  };
-
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/contact`,
+        formData
+      );
+
+      if (response.data.ok) {
+        toast({
+          title: "Message Sent! 🎉",
+          description:
+            "Thank you for contacting us. We'll get back to you within 24 hours.",
+        });
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+      }
+    } catch (error: any) {
+      console.error("Error sending message:", error.response?.data || error);
+      toast({
+        title: "Failed to send message 😢",
+        description:
+          error.response?.data?.error ||
+          "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -45,13 +72,23 @@ const ContactForm = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Let's Talk</h2>
           <div className="space-y-4 text-muted-foreground">
             <p>Have a project in mind? We'd love to hear from you.</p>
-            
             <div className="space-y-2 text-sm">
-              <p><strong>📧 Email:</strong> moezrehman2@gmail.com</p>
-              <p><strong>📞 Phone:</strong> 0317-3712950 | 0370-9447916</p>
-              <p><strong>🌐 Website:</strong> www.amenterprises.tech</p>
-              <p><strong>🕔 Working Hours:</strong> 5:00 PM – 3:00 AM (Pakistan Standard Time)</p>
-              <p><strong>📍 Location:</strong> Rawalpindi, Pakistan</p>
+              <p>
+                <strong>📧 Email:</strong> moezrehman2@gmail.com
+              </p>
+              <p>
+                <strong>📞 Phone:</strong> 0317-3712950 | 0370-9447916
+              </p>
+              <p>
+                <strong>🌐 Website:</strong> www.amenterprises.tech
+              </p>
+              <p>
+                <strong>🕔 Working Hours:</strong> 5:00 PM – 3:00 AM (Pakistan
+                Standard Time)
+              </p>
+              <p>
+                <strong>📍 Location:</strong> Rawalpindi, Pakistan
+              </p>
             </div>
           </div>
         </div>
@@ -76,7 +113,9 @@ const ContactForm = () => {
               </div>
               <div>
                 <h3 className="font-semibold text-lg mb-1">Call Us</h3>
-                <p className="text-muted-foreground">0317-3712950 | 0370-9447916</p>
+                <p className="text-muted-foreground">
+                  0317-3712950 | 0370-9447916
+                </p>
                 <p className="text-muted-foreground">5:00 PM – 3:00 AM (PKT)</p>
               </div>
             </CardContent>
